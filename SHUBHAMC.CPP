@@ -1,30 +1,37 @@
+
 #include<iostream.h>
 #include<conio.h>
 class demo
 {
-       private:
-	       int count;
-       public:
-	       demo();
-	       void print();
+      private:
+	      int a,b;
+      public:
+	      demo(int x, int y);
+	      demo(demo &m);
+	      void print();
 };
-void demo::demo()
+demo::demo(int x, int y)
 {
-      cout<<"constuctor called"<<endl;
-      count=0;
+      a=x;
+      b=y;
 }
-void demo::print()
+void demo::demo print()
 {
-      cout<<count<<endl;
+      cout<<"value of a:->"<<a<<endl;
+      cout<<"value of b:->"<<b<<endl;
+}
+demo::demo(demo &m)
+{
+      a=m.a;
+      b=m.b;
 }
 void main()
 {
       clrscr();
-      demo d;
+      demo d(20,20)
       d.print();
-      demo d1;
-      d1.print();
-      demo d2;
-      d2.print();
+      demo d1(d);
+      d.print();
+
       getch();
 }
